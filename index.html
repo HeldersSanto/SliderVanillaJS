@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide{
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .slide img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+            transition: 1s;
+        }
+        .ball{
+            width: 55px;
+            margin: 0 auto;
+            position: relative;
+            top: 410px;
+        }
+        .ball .indicador{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .ball .ativo{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <img src="img.jpg" style="opacity: 1;">
+        <img src="img1.jpg" >
+        <img src="img2.jpg" >
+    </div>
+    <div class="ball">
+        <div class="indicador ativo"></div>
+        <div class="indicador"></div>
+        <div class="indicador"></div>
+    </div>
+    <script>
+        var lastIndex = 0;
+        var images = document.querySelectorAll('.slide img');
+    
+    images.forEach((item, index)=>{
+
+    document.querySelectorAll('.ball .indicador')[index].addEventListener('click', ()=>{
+            let lastImg = document.querySelectorAll('.slide img')[lastIndex];
+            let newImg = document.querySelectorAll('.slide img')[index];
+            
+        document.querySelectorAll('.ball .indicador')[lastIndex].classList.remove('ativo');
+        document.querySelectorAll('.ball .indicador')[index].classList.add('ativo');
+
+            lastImg.style.opacity = 0;
+            newImg.style.opacity = 1;
+
+        lastIndex = index;
+        })
+    })
+    </script>
+</body>
+</html>
