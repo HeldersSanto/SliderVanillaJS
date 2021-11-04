@@ -1,0 +1,30 @@
+.slide{
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .slide img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+            transition: 1s;
+        }
+        .ball{
+            width: 55px;
+            margin: 0 auto;
+            position: relative;
+            top: 410px;
+        }
+        .ball .indicador{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .ball .ativo{
+            background-color: red;
+        }
